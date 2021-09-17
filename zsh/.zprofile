@@ -1,0 +1,1 @@
+alias tessst="echo testhey"

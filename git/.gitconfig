@@ -1,0 +1,9 @@
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore_global
+[init]
+    defaultBranch = main
+[include]
+    path = ~/.gitconfig_local
+[color]
+    ui = true

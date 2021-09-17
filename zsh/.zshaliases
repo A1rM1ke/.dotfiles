@@ -1,0 +1,29 @@
+#Personal Aliases
+alias cl="clear"
+alias ls="ls -G"
+alias la="ls -al"
+alias ..="cd .."
+alias ...="cd ../.."
+alias reload="source ~/.zshrc && cl"
+alias bank="cd ~/Projects/Banking\ System"
+alias aliasrc="vim ~/.zsh_aliases"
+alias linux="ssh adminlocal@127.0.0.1 -p 5679"
+
+#GCC Aliases
+alias g++="g++-11 -Wall"
+alias gcc="gcc-11 -Wall"
+
+#Git Aliases
+alias gs="git status"
+alias gb="git branch"
+alias gc="git commit -v"
+alias gco="git checkout"
+alias gcb="git checkout -b"
+
+#Vim Aliases
+alias vimrc="vim ~/.vimrc"
+
+#Allow override from local aliases
+if test -f ~/.zshaliases.local; then
+    source ~/.zshaliases.local
+fi
