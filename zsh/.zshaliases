@@ -9,9 +9,11 @@ alias bank="cd ~/Projects/Banking\ System"
 alias aliasrc="vim ~/.zsh_aliases"
 alias linux="ssh adminlocal@127.0.0.1 -p 5679"
 
-#GCC Aliases
-alias g++="g++-11 -Wall"
-alias gcc="gcc-11 -Wall"
+#GCC Aliases in case on Mac and don't want to use Clang compiler
+if command -v gcc-11 &> /dev/null; then
+    alias g++="g++-11 -Wall"
+    alias gcc="gcc-11 -Wall"
+fi
 
 #Git Aliases
 alias gs="git status"

@@ -1,1 +1,1 @@
-alias tessst="echo testhey"
+eval $(ssh-agent -s) > /dev/null
