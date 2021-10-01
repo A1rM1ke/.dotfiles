@@ -4,6 +4,6 @@
 [init]
     defaultBranch = main
 [include]
-    path = ~/.gitconfig_local
+    path = ~/.gitconfig.local
 [color]
     ui = true

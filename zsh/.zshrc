@@ -31,4 +31,4 @@ setopt PROMPT_SUBST
 
 #Custom Prompt
 #→ [Current Folder] [git info] $
-PROMPT='%B%F{green}→ %F{33}%1~ ${vcs_info_msg_0_}%F{white}$ %b'
+PROMPT='%F{#FE6C0B}%m %B%(?.%F{#57C769}→.%F{#E0295D}→) %F{#008DD5}%1~ ${vcs_info_msg_0_}%F{#FFFFFF}$ %b'
