@@ -6,8 +6,8 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias reload="source ~/.zshrc && cl"
 alias bank="cd ~/Projects/Banking\ System"
-alias aliasrc="vim ~/.zsh_aliases"
-alias linux="ssh adminlocal@127.0.0.1 -p 5679"
+alias aliasrc="vim ~/.zshaliases"
+alias dotfiles="cd ~/.dotfiles"
 
 #GCC Aliases in case on Mac and don't want to use Clang compiler
 if command -v gcc-11 &> /dev/null; then

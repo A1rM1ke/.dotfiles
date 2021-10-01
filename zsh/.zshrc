@@ -1,10 +1,3 @@
-#Environment file
-ENVFILE=$HOME/.dotfiles/zsh/.zshenv
-
-if test -f"$ENVFILE"; then
-    source $ENVFILE
-fi
-
 #Import the Aliases from the Alias file
 ALIASFILE=$HOME/.zshaliases
 
@@ -28,6 +21,12 @@ precmd() {
 zstyle ':vcs_info:git:*' formats "%F{160}%s:(%F{208}%b%F{160}) "
 
 setopt PROMPT_SUBST
+
+if test -d "$HOME/bin/"; then
+    for file in $HOME/bin/**/*; do
+        source $file;
+    done
+fi
 
 #Custom Prompt
 #→ [Current Folder] [git info] $
