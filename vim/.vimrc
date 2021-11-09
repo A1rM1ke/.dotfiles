@@ -27,6 +27,12 @@ nmap <Leader>z ZZ |"Map Space Z to ZZ (save and exit)
 "Fugitive Mappings
 nnoremap <Leader>gs :G<CR>
 
+"Coc Mappings
+" Use <Tab> and <S-Tab> to navigate the completion list
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+
 "Custom Vim Settings
 set relativenumber
 set number
@@ -64,6 +70,9 @@ call plug#begin()
 	Plug 'bfrg/vim-cpp-modern'
 	Plug 'vim-scripts/a.vim'
     Plug 'mhinz/vim-signify'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'OmniSharp/omnisharp-vim'
 call plug#end()
 
 "Syntastic Recommended Settings
