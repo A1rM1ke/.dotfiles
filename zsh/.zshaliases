@@ -1,13 +1,12 @@
 #Personal Aliases
-alias cl="clear"
 alias ls="ls -G"
+alias ll="ls -l"
 alias la="ls -al"
 alias ..="cd .."
 alias ...="cd ../.."
-alias reload="source ~/.zshrc && cl"
-alias bank="cd ~/Projects/Banking\ System"
+alias reload="source ~/.zshrc && clear"
 alias aliasrc="vim ~/.zshaliases"
-alias dotfiles="cd ~/.dotfiles"
+alias dotfiles="cd ~/.dotfiles && ls"
 
 #GCC Aliases in case on Mac and don't want to use Clang compiler
 if command -v gcc-11 &> /dev/null; then

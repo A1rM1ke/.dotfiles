@@ -2,15 +2,15 @@
 map <SPACE> <nop>
 map <SPACE> <Leader>
 
+" Remap Ctrl-S to Escape
+inoremap <C-s> <ESC>
+noremap <C-s> <ESC>
+
 " Don't use arrow keys
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
-
-"Map Ctrl-j to escape
-imap <C-j> <esc>
-map <C-j> <esc>
 
 "Personal Mappings
 nmap <Leader>o m`o<ESC>`` |"Add empty line below w\out entering insert mode
@@ -26,11 +26,6 @@ nmap <Leader>z ZZ |"Map Space Z to ZZ (save and exit)
 
 "Fugitive Mappings
 nnoremap <Leader>gs :G<CR>
-
-"Coc Mappings
-" Use <Tab> and <S-Tab> to navigate the completion list
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 
 "Custom Vim Settings
@@ -61,7 +56,7 @@ syntax enable
 call plug#begin()
 
 	"List of Plugins
-	Plug 'vim-syntastic/syntastic'
+	"Plug 'vim-syntastic/syntastic'
 	Plug 'vim-airline/vim-airline'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-surround'
@@ -73,25 +68,27 @@ call plug#begin()
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'OmniSharp/omnisharp-vim'
+    Plug 'lervag/vimtex'
+    Plug 'sirver/ultisnips'
+    Plug 'dense-analysis/ale'
 call plug#end()
 
 "Syntastic Recommended Settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
 "Syntastic Custom Settings
-let g:syntastic_cpp_compiler = 'g++'
-let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
-let g:syntastic_c_compiler = 'gcc'
+"let g:syntastic_cpp_compiler = 'g++'
+"let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
+"let g:syntastic_c_compiler = 'gcc'
 
 "Airline Custom Settings
-"Airline Statusline
 let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#syntastic#enabled=0
 let g:airline_section_b = '%{airline_symbols.branch} %{fugitive#head()}'
@@ -101,3 +98,32 @@ let g:airline_section_warning = ''
 "Setting Gruvbox as the colorscheme
 let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
+
+"VimTex Settings
+let g:tex_flavor='latex'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
+"Snippets Settings
+"let g:UltiSnipsExpandTrigger = '<TAB>'
+"let g:UltiSnipsJumpForwardTrigger = '<TAB>'
+"let g:UltiSnipsJumpBackwardTrigger = '<S-TAB>'
+
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<c-c>"
+let g:UltiSnipsJumpForwardTrigger="<c-x>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="horizontal"
+
+"Coc Mappings
+" Use <Tab> and <S-Tab> to navigate the completion list
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"                        
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+"inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
