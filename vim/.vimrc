@@ -1,6 +1,5 @@
 " Remap leader to Space
-map <SPACE> <nop>
-map <SPACE> <Leader>
+map , <Leader>
 
 " Remap Ctrl-S to Escape
 inoremap <C-s> <ESC>
@@ -20,13 +19,23 @@ nmap <Leader>l :wincmd l<CR> |"Jump between split windows (right)
 nmap <Leader>k :wincmd k<CR> |"Jump between split windows (up)
 nmap <Leader>j :wincmd j<CR> |"Jump between split windows (down)
 nmap <Leader>w :wincmd o<CR> |"Close the current split
-nmap <Leader>t :below term<CR> |"Open Terminal
+nmap <silent> <Leader>t :below term<CR> |"Open Terminal
 nnoremap <Leader>m :make<CR> |"Execute default make file target
 nmap <Leader>z ZZ |"Map Space Z to ZZ (save and exit)
 
 "Fugitive Mappings
 nnoremap <Leader>gs :G<CR>
 
+"Buffer Interaction
+nnoremap <silent> <Leader>b :buffers<CR>
+
+"Fuzzy Finder
+nnoremap <silent> <C-f> :FZF<CR>
+
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 "Custom Vim Settings
 set relativenumber
@@ -69,7 +78,7 @@ call plug#begin()
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'OmniSharp/omnisharp-vim'
     Plug 'lervag/vimtex'
-    Plug 'sirver/ultisnips'
+    "lug 'sirver/ultisnips'
     Plug 'dense-analysis/ale'
 call plug#end()
 
