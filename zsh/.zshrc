@@ -28,6 +28,8 @@ if test -d "$HOME/bin/"; then
     done
 fi
 
+export TERM=xterm-256color 
+
 #Custom Prompt
 #→ [Current Folder] [git info] $
-PROMPT='%F{#FE6C0B}%m %B%(?.%F{#57C769}→.%F{#E0295D}→) %F{#008DD5}%1~ ${vcs_info_msg_0_}%F{#FFFFFF}$ %b'
+PROMPT='%F{214}%m %B%(?.%F{82}→.%F{1}→) %F{75}%1~ ${vcs_info_msg_0_}%F{15}$ %b'
