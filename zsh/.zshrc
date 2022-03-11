@@ -1,8 +1,13 @@
 #Import the Aliases from the Alias file
 ALIASFILE=$HOME/.zshaliases
+SCRIPTSFILE=$HOME/.zshscripts
 
 if test -f "$ALIASFILE"; then
     source $ALIASFILE
+fi
+
+if test -f "$SCRIPTSFILE"; then
+    source $SCRIPTSFILE
 fi
 
 #Import Prompt
