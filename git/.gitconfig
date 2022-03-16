@@ -1,9 +1,23 @@
+[alias]
+    #Pull the repository and all of its submodules
+    full-pull = pull --recurse-submodules
+
+    #Amend the currently staged files to the last commit
+    amend = commit --amend --reuse-message=HEAD
 [core]
+    #Set the default editor to Vim
     editor = vim
+    #Set a global gitignore
     excludesfile = ~/.gitignore_global
 [init]
+    #The default branch is called main
     defaultBranch = main
 [include]
+    #Include a local gitconfig
     path = ~/.gitconfig.local
 [color]
+    #Enable the color in the git command ui when possible
     ui = true
+[commit]
+    #Automatically sign commits with the gpg key
+    gpgsign = true
