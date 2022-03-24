@@ -37,4 +37,4 @@ export TERM=xterm-256color
 
 #Custom Prompt
 #→ [Current Folder] [git info] $
-PROMPT='%F{214}%m %B%(?.%F{82}→.%F{1}→) %F{75}%1~ ${vcs_info_msg_0_}%F{15}$ %b'
+PROMPT='%F{214}%m %B%(?.%F{82}→.%F{1}→) %F{75}%1~ ${vcs_info_msg_0_}%F{15}%# %b'

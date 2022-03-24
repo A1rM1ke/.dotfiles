@@ -5,5 +5,5 @@ export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:/usr/local/include"
 #Colors for ls
 export LSCOLORS="ExGxcxdxcxegedabagacad"
 
-#
-export TEST="test"
+#Add the user local bin to path
+export PATH="$HOME/.local/bin:$PATH"
