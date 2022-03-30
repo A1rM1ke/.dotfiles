@@ -1,6 +1,3 @@
-" Remap leader to Space
-map , <Leader>
-
 " Remap Ctrl-S to Escape
 inoremap <C-s> <ESC>
 noremap <C-s> <ESC>
@@ -14,14 +11,6 @@ map <right> <nop>
 "Personal Mappings
 nmap <Leader>o m`o<ESC>`` |"Add empty line below w\out entering insert mode
 nmap <Leader>O m`O<ESC>`` |"Add empty line aboce w\out entering insert mode
-nmap <Leader>h :wincmd h<CR> |"Jump between split windows (left)
-nmap <Leader>l :wincmd l<CR> |"Jump between split windows (right)
-nmap <Leader>k :wincmd k<CR> |"Jump between split windows (up)
-nmap <Leader>j :wincmd j<CR> |"Jump between split windows (down)
-nmap <Leader>w :wincmd o<CR> |"Close the current split
-nmap <silent> <Leader>t :below term<CR> |"Open Terminal
-nnoremap <Leader>m :make<CR> |"Execute default make file target
-nmap <Leader>z ZZ |"Map Space Z to ZZ (save and exit)
 
 "Fugitive Mappings
 nnoremap <Leader>gs :G<CR>
