@@ -76,7 +76,7 @@ call plug#begin()
     Plug 'hrsh7th/nvim-cmp'
     Plug 'quangnguyen30192/cmp-nvim-ultisnips'
     Plug 'github/copilot.vim'
-    "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 "----------------------------------Vim-airline----------------------------------
@@ -105,6 +105,7 @@ set completeopt=menu,menuone,noselect
 set completeopt-=wildmenu
 
 lua require('lsp')
+lua require('treesitter')
 
 filetype plugin on
 
