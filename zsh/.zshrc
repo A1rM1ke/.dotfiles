@@ -27,12 +27,6 @@ zstyle ':vcs_info:git:*' formats "%F{160}%s:(%F{208}%b%F{160}) "
 
 setopt PROMPT_SUBST
 
-if test -d "$HOME/bin/"; then
-    for file in $HOME/bin/**/*; do
-        source $file;
-    done
-fi
-
 export TERM=xterm-256color 
 
 #Custom Prompt
