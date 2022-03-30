@@ -1,0 +1,88 @@
+global !p
+def math():
+    return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+
+def comment(): 
+    return vim.eval('vimtex#syntax#in_comment()') == '1'
+
+def env(name):
+    [x,y] = vim.eval("vimtex#env#is_inside('" + name + "')") 
+    return x != '0' and x != '0'
+
+endglobal
+
+
+snippet beg "begin{} / end{}" bA
+\begin{$1}$0
+\end{$1}
+endsnippet
+
+context "math()" 
+snippet in "var in set" iA
+\in
+endsnippet
+
+context "math()"
+snippet pi "pi" iA
+\pi
+endsnippet
+
+context "math()"
+snippet eps "Epsilon" iA
+\epsilon
+endsnippet
+
+context "math()"
+snippet thet "Theta" iA
+\theta
+endsnippet
+
+context "math()"
+snippet log "logarithm" iA
+\log{$1}$0
+endsnippet
+
+context "math()"
+snippet int "Integer Set" iA
+\mathbb{Z}
+endsnippet
+
+context "math()"
+snippet sum "Sigma Sum" iA
+\sum\limits_{$1} ^{$2}$0
+endsnippet
+
+context "math()"
+snippet prod "Pi Product" iA
+\prod\limits_{$1} ^{$2}$0
+endsnippet
+
+context "math()"
+snippet txt "Text section" iA
+\text{ $0 }
+endsnippet
+
+context "math()"
+snippet <= "less or euqal to" iA
+\leq 
+endsnippet
+
+context "math()"
+snippet >= "greater or euqal to" iA
+\geq 
+endsnippet
+
+context "math()"
+snippet ( "Brackets" iA
+($1)$0
+endsnippet
+
+context "math()"
+snippet ^ "to the power of" iA
+^{$1}$0
+endsnippet
+
+context "math()"
+snippet frac "Fraction" iA
+\frac{$1}{$2}$0
+endsnippet

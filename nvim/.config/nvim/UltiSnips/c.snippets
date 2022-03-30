@@ -1,0 +1,21 @@
+snippet main "Main function" bA
+int main(int argc, char* argv[]) {
+	$0
+
+	return 0;
+}
+endsnippet
+
+snippet struct "Define a struct" bA
+typedef struct $1 {
+	$0
+} $2_t;
+endsnippet
+
+snippet print "Printf" 
+printf($1);
+endsnippet
+
+snippet if "If statement" bA
+if($0)
+endsnippet
