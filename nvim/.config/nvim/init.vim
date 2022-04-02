@@ -7,7 +7,7 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
-"Remap Ctrl-S to Escape
+"Remap Ctrl-s and to Escape
 inoremap <C-s> <ESC>
 noremap <C-s> <ESC>
 
@@ -54,6 +54,7 @@ set formatoptions-=r
 set formatoptions-=o
 set formatoptions-=c
 let &colorcolumn="80,120" "Set color column to 80 and 120
+set updatetime=100 "Set update time to 100ms
 syntax on "Enable syntax highlighting
 
 "-----------------------------------Plugins-------------------------------------
@@ -108,4 +109,3 @@ lua require('lsp')
 lua require('treesitter')
 
 filetype plugin on
-
