@@ -68,7 +68,7 @@ call plug#begin()
     Plug 'mhinz/vim-signify'
     Plug 'lervag/vimtex'
     Plug 'sirver/ultisnips'
-    Plug 'dense-analysis/ale'
+    "Plug 'dense-analysis/ale'
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-buffer'
@@ -78,6 +78,7 @@ call plug#begin()
     Plug 'quangnguyen30192/cmp-nvim-ultisnips'
     Plug 'github/copilot.vim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 "----------------------------------Vim-airline----------------------------------
@@ -107,5 +108,6 @@ set completeopt-=wildmenu
 
 lua require('lsp')
 lua require('treesitter')
+lua require('copilot')
 
 filetype plugin on
