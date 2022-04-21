@@ -19,7 +19,17 @@ require'nvim-treesitter.configs'.setup {
 }
 
 -- Sets neovim's folding options to use Treesitter
+-- Starting fold level is set to 99, such that no sections are folded on start
 vim.cmd[[
+    set foldlevelstart=99
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
+
+    "Fold traversal made less weird
+    nnoremap z[ [z
+    nnoremap z] ]z
+
+    "Save and load folds
+    au BufWinLeave * silent mkview
+    au BufWinEnter * silent loadview
 ]]
