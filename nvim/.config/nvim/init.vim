@@ -68,7 +68,6 @@ call plug#begin()
     Plug 'mhinz/vim-signify'
     Plug 'lervag/vimtex'
     Plug 'sirver/ultisnips'
-    "Plug 'dense-analysis/ale'
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-buffer'
@@ -76,7 +75,7 @@ call plug#begin()
     Plug 'hrsh7th/cmp-cmdline'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-    Plug 'github/copilot.vim'
+    "Plug 'github/copilot.vim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'jiangmiao/auto-pairs'
 call plug#end()
@@ -108,6 +107,9 @@ set completeopt-=wildmenu
 
 lua require('lsp')
 lua require('treesitter')
-lua require('copilot')
+"lua require('copilot')
+
+"Autopairs ignore single quotes in Rust files when defining reference ifetime parameters
+au FileType rust let b:AutoPairs = AutoPairsDefine({"&'" : "", "<'" : ">"})
 
 filetype plugin on
