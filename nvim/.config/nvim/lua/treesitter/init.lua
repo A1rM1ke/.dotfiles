@@ -30,6 +30,9 @@ vim.cmd[[
     nnoremap z] ]z
 
     "Save and load folds
-    au BufWinLeave * silent mkview
-    au BufWinEnter * silent loadview
+    augroup remember_folds
+        autocmd!
+        autocmd BufWinLeave *.* silent! mkview
+        autocmd BufWinEnter *.* silent! loadview
+    augroup END
 ]]
