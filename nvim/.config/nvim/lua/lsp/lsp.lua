@@ -25,8 +25,8 @@ cmp.setup({
     },
     mapping = {
         --['<C-n>'] = cmp.mapping(complete_next(), { 'i', 'c' }),
-        ['<C-TAB>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
-        ['<C-S-TAB>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
+        ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
+        ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
         ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
         ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
         ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
