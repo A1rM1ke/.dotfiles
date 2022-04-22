@@ -78,6 +78,7 @@ call plug#begin()
     "Plug 'github/copilot.vim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'jiangmiao/auto-pairs'
+    Plug 'romgrk/nvim-treesitter-context'
 call plug#end()
 
 "----------------------------------Vim-airline----------------------------------
@@ -107,6 +108,7 @@ set completeopt-=wildmenu
 
 lua require('lsp')
 lua require('treesitter')
+lua require('ts-context')
 "lua require('copilot')
 
 "Autopairs ignore single quotes in Rust files when defining reference ifetime parameters
