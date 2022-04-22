@@ -15,6 +15,7 @@ require'nvim-treesitter.configs'.setup {
   },
   indent = {
     enable = true,
+    disable = {"python"}
   },
 }
 
@@ -24,6 +25,8 @@ vim.cmd[[
     set foldlevelstart=99
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
+
+    au FileType python set foldmethod=indent
 
     "Fold traversal made less weird
     nnoremap z[ [z
