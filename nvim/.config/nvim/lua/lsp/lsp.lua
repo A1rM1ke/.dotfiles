@@ -23,10 +23,26 @@ cmp.setup({
             vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
         end,
     },
-    mapping = {
-        --['<C-n>'] = cmp.mapping(complete_next(), { 'i', 'c' }),
-        ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
-        ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
+    mapping = cmp.mapping.preset.insert({
+        ['<Tab>'] = cmp.mapping(function()
+                cmp.select_next_item()
+        end,
+            { "i", "s" }
+        ),
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+
+            if cmp.visible() then
+                cmp.select_prev_item()
+            else
+                fallback()
+            end
+        end,
+            { "i", "s" }
+        ),
+        --['<Tab>'] = cmp.mapping(complete_next(), { 'i', 'c' }),
+        --['<S-Tab>'] = cmp.mapping(complete_prev(fallback), { 'i', 'c' }),
+        --['<Tab>'] = complete_next(),
+        --['<S-Tab>'] = cmp.mapping.select_prev_item(),
         ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
         ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
         ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
@@ -35,8 +51,8 @@ cmp.setup({
             i = cmp.mapping.abort(),
             c = cmp.mapping.close(),
         }),
-        --['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    },
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
         sources = cmp.config.sources({
             { name = 'nvim_lsp' },
             { name = 'ultisnips' }, -- For ultisnips users.
