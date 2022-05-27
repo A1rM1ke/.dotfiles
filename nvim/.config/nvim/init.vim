@@ -86,7 +86,7 @@ call plug#end()
 "Airline: Enable Git branch display
 let g:airline#extensions#branch#enabled=1
 "Airline: Change the b section to display the current git branch
-let g:airline_section_b = '%{airline_symbols.branch} %{fugitive#head()}'
+let g:airline_section_b = '%{airline_symbols.branch} %{FugitiveHead()}'
 "Airline: Change the format of line number display in z section
 let g:airline_section_z = '%{airline_symbols.maxlinenr} %l/%L : Col %c'
 "Airline: Disable the warning section
