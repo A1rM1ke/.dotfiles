@@ -1,5 +1,3 @@
-
-
 "-------------------------------Custom Mappings---------------------------------
 "Disable arrow keys
 map <up> <nop>
@@ -7,6 +5,7 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
+let mapleader = ' '
 "Remap Ctrl-s and to Escape
 inoremap <C-s> <ESC>
 noremap <C-s> <ESC>
@@ -28,6 +27,9 @@ nnoremap <C-h> <C-W>h
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
+
+"Map diagnostic float panel
+nnoremap <Leader>dd <cmd> lua vim.diagnostic.open_float() <CR>
 
 "-----------------------------Custom Vim Settings-------------------------------
 set relativenumber "Set relative line numbers
