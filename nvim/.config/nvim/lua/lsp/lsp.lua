@@ -24,21 +24,24 @@ cmp.setup({
         end,
     },
     mapping = cmp.mapping.preset.insert({
-        ['<Tab>'] = cmp.mapping(function()
-                cmp.select_next_item()
-        end,
-            { "i", "s" }
-        ),
-        ['<S-Tab>'] = cmp.mapping(function(fallback)
-
-            if cmp.visible() then
-                cmp.select_prev_item()
-            else
-                fallback()
-            end
-        end,
-            { "i", "s" }
-        ),
+        --['<C-n>'] = cmp.mapping(function(fallback)
+            --if cmp.visible() then
+                --cmp.select_next_item()
+            --else
+                --fallback()
+            --end
+        --end,
+            --{ "i", "s" }
+        --),
+        --['<C-N>'] = cmp.mapping(function(fallback)
+            --if cmp.visible() then
+                --cmp.select_prev_item()
+            --else
+                --fallback()
+            --end
+        --end,
+            --{ "i", "s" }
+        --),
         --['<Tab>'] = cmp.mapping(complete_next(), { 'i', 'c' }),
         --['<S-Tab>'] = cmp.mapping(complete_prev(fallback), { 'i', 'c' }),
         --['<Tab>'] = complete_next(),
@@ -97,3 +100,6 @@ cmp.setup({
   require('lspconfig')['rust_analyzer'].setup {
     capabilities = capabilities
   }
+    require('lspconfig')['gopls'].setup {
+        capabilities = capabilities
+    }
