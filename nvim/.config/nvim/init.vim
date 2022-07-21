@@ -82,6 +82,7 @@ call plug#begin()
     Plug 'jiangmiao/auto-pairs'
     Plug 'romgrk/nvim-treesitter-context'
     Plug 'simrat39/rust-tools.nvim'
+    Plug 'onsails/lspkind.nvim'
 call plug#end()
 
 "----------------------------------Vim-airline----------------------------------

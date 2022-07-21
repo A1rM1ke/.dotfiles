@@ -1,5 +1,6 @@
 -- Setup nvim-cmp.
 local cmp = require'cmp'
+local lspkind = require'lspkind'
 
 local function complete_next()
     if cmp.visible() then
@@ -21,7 +22,24 @@ local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
+
+
 cmp.setup({
+    formatting = {
+        format = lspkind.cmp_format({
+            mode = "text",
+            menu = ({
+                buffer = "[Buffer]",
+                nvim_lsp = "[LSP]",
+                luasnip = "[LuaSnip]",
+                nvim_lua = "[Lua]",
+                latex_symbols = "[Latex]",
+            })
+        }),
+    },
+    view = {                                                        
+        entries = {name = 'custom', selection_order = 'near_cursor' } 
+    },
     snippet = {
         expand = function(args)
             vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
@@ -84,14 +102,14 @@ cmp.setup({
         ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
         ['<C-e>'] = cmp.mapping({ i = cmp.mapping.close(), c = cmp.mapping.close() }),
         ['<CR>'] = cmp.mapping({
-            i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
-            c = function(fallback)
-                if cmp.visible() then
-                    cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-                else
-                    fallback()
-                end
-            end
+            i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })--,
+            --c = function(fallback)
+                --if cmp.visible() then
+                    --cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+                --else
+                    --fallback()
+                --end
+            --end
         }),
     }),
         sources = cmp.config.sources({
