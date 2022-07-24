@@ -20,9 +20,13 @@ set.showmode = false
 set.autoread = true
 set.splitbelow = true
 set.updatetime = 100
+set.completeopt = 'menu,menuone,noselect'
 
 vim.options = {
     colorcolumn = '80,120'
 }
 
-vim.cmd('syntax on')
+vim.cmd[[
+    syntax on
+    filetype plugin on
+]]
