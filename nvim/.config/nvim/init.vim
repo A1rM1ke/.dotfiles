@@ -77,12 +77,12 @@ call plug#begin()
     Plug 'hrsh7th/cmp-cmdline'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-    "Plug 'github/copilot.vim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'jiangmiao/auto-pairs'
     Plug 'romgrk/nvim-treesitter-context'
     Plug 'simrat39/rust-tools.nvim'
     Plug 'onsails/lspkind.nvim'
+    Plug 'Maan2003/lsp_lines.nvim'
 call plug#end()
 
 "----------------------------------Vim-airline----------------------------------
@@ -114,9 +114,17 @@ lua require('lsp')
 lua require('treesitter')
 lua require('ts-context')
 lua require('my-rust-tools')
-"lua require('copilot')
+lua require('lsp_lines').register_lsp_virtual_lines()
 
 "Autopairs ignore single quotes in Rust files when defining reference ifetime parameters
 au FileType rust let b:AutoPairs = AutoPairsDefine({"&'" : "", "<'" : ">"})
+
+lua << EOF
+-- Enable spell checking for certain file types
+vim.api.nvim_create_autocmd(
+    { "BufRead", "BufNewFile" },
+    { pattern = { "*.txt", "*.md", "*.tex" }, command = "setlocal spell" }
+)
+EOF
 
 filetype plugin on
