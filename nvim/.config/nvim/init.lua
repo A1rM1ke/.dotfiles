@@ -7,7 +7,6 @@ require 'renzum.plugins.gruvbox'
 require 'renzum.plugins.airline'
 
 
-require('lsp')
 require('treesitter')
 require('ts-context')
 require('my-rust-tools')
