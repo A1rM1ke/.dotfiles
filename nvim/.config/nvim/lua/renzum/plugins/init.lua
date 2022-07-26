@@ -22,5 +22,6 @@ vim.cmd[[
         Plug 'simrat39/rust-tools.nvim'
         Plug 'onsails/lspkind.nvim'
         Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
+        Plug 'akinsho/toggleterm.nvim', { 'tag' : 'v2.*' }
     call plug#end()
 ]]
