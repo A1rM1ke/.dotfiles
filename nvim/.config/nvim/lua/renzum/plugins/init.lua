@@ -17,11 +17,12 @@ vim.cmd[[
         Plug 'hrsh7th/nvim-cmp'
         Plug 'quangnguyen30192/cmp-nvim-ultisnips'
         Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-        Plug 'jiangmiao/auto-pairs'
+        "Plug 'jiangmiao/auto-pairs'
         Plug 'romgrk/nvim-treesitter-context'
         Plug 'simrat39/rust-tools.nvim'
         Plug 'onsails/lspkind.nvim'
         Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
         Plug 'akinsho/toggleterm.nvim', { 'tag' : 'v2.*' }
+        Plug 'windwp/nvim-autopairs'
     call plug#end()
 ]]

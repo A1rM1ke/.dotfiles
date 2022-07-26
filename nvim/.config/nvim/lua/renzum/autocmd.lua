@@ -7,15 +7,6 @@ vim.api.nvim_create_autocmd(
     }
 )
 
---Change AutoPairs for Rust edge cases
-vim.api.nvim_create_autocmd(
-    "FileType",
-    {
-        pattern = {"*.rs"},
-        command = "let b:AutoPairs = AutoPairsDefine({\"&\'\" : \"\", \"<\'\" : \">\"})"
-    }
-)
-
 --Enable Spellcheck in LaTeX, Markdown, and Text files
 vim.api.nvim_create_autocmd(
     { "BufRead", "BufNewFile" },

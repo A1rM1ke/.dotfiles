@@ -2,6 +2,8 @@
 local cmp = require'cmp'
 local lspkind = require'lspkind'
 
+local cmp_autopairs = require'nvim-autopairs.completion.cmp'
+
 --[[
 local function complete_next()
     if cmp.visible() then
@@ -143,3 +145,8 @@ cmp.setup({
     { { name = 'cmdline' } }
     )
   })
+
+cmp.event:on(
+    'confirm_done',
+    cmp_autopairs.on_confirm_done()
+)
