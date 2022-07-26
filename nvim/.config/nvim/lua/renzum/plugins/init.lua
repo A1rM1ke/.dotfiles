@@ -23,5 +23,6 @@ vim.cmd[[
         Plug 'akinsho/toggleterm.nvim', { 'tag' : 'v2.*' }
         Plug 'windwp/nvim-autopairs'
         Plug 'nvim-lualine/lualine.nvim'
+        Plug 'Yazeed1s/minimal.nvim'
     call plug#end()
 ]]

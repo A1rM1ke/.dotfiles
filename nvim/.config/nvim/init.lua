@@ -3,6 +3,8 @@ require 'renzum.mappings'
 require 'renzum.settings'
 require 'renzum.autocmd'
 
-require 'renzum.plugins.gruvbox'
+vim.cmd[[
+colorscheme minimal-base16
+]]
 
 require('lsp_lines').setup()

@@ -3,7 +3,7 @@
 require('lualine').setup{
     options = {
         icons_enabled = true,
-        theme = 'gruvbox',
+        theme = 'auto',
         --componen_separators = { left = '', right = ''},
         --section_separators = { left = '', right = ''},
     },
