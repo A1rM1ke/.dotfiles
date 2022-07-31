@@ -10,7 +10,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     --TPOPE Plugins
-    use 'tpope/vim-fugitive'
+    --use 'tpope/vim-fugitive' --I'm not a fan of using git inside vim
     use 'tpope/vim-surround'
     use 'tpope/vim-commentary'
 
@@ -28,15 +28,20 @@ return require('packer').startup(function(use)
         ft = {'tex', 'latex'},
     })
 
-    use 'sirver/ultisnips'
+    --use 'sirver/ultisnips'
 
     use {'neovim/nvim-lspconfig', config = function() require('plugins.lsp_config') end }
 
     --Snippet
     use({
+        'L3MON4D3/LuaSnip',
+        requires = 'saadparwaiz1/cmp_luasnip',
+        --config = function() require('plugins.luasnip') end,
+    })
+    --[[use({
         'quangnguyen30192/cmp-nvim-ultisnips',
         requires = 'sirver/ultisnips',
-    })
+    })]]
 
 
     --Completion
@@ -47,6 +52,8 @@ return require('packer').startup(function(use)
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-cmdline',
+            'onsails/lspkind.nvim',
+            'saadparwaiz1/cmp_luasnip',
         },
         config = function() require('plugins.nvim_cmp') end,
     })
@@ -70,7 +77,6 @@ return require('packer').startup(function(use)
         ft = "rust"
     })
 
-    use 'onsails/lspkind.nvim'
     use 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 
     use ({
@@ -87,6 +93,13 @@ return require('packer').startup(function(use)
     use({
         'nvim-lualine/lualine.nvim',
         config = function() require('plugins.lualine') end,
+    })
+
+    --Devtools
+    use({
+        'ray-x/go.nvim',
+        opt = true,
+        ft = "go"
     })
 
     if packer_bootstrap then

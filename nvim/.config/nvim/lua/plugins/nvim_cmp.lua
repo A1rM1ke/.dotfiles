@@ -1,6 +1,12 @@
 -- Setup nvim-cmp.
 local cmp = require'cmp'
 local lspkind = require'lspkind'
+local luasnip = require('luasnip')
+
+local has_words_before = function()
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
 
 local cmp_autopairs = require'nvim-autopairs.completion.cmp'
 
@@ -28,14 +34,15 @@ end
 cmp.setup({
     formatting = {
         format = lspkind.cmp_format({
-            mode = "text",
-            menu = ({
+            mode = "icons",
+--[[            menu = ({
                 buffer = "[Buffer]",
                 nvim_lsp = "[LSP]",
                 luasnip = "[LuaSnip]",
                 nvim_lua = "[Lua]",
                 latex_symbols = "[Latex]",
             })
+]]
         }),
     },
     view = {
@@ -43,7 +50,7 @@ cmp.setup({
     },
     snippet = {
         expand = function(args)
-            vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+            require('luasnip').lsp_expand(args.body)
         end,
     },
     mapping = cmp.mapping.preset.insert({
@@ -57,20 +64,26 @@ cmp.setup({
             end,
             i = function(fallback)
                 if cmp.visible() then
-                    cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-                elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-                    vim.api.nvim_feedkeys(t("<Plug>(ultusnips_jump_forward)"), 'm', 'true')
+                    cmp.select_next_item()
+                elseif luasnip.expand_or_jumpable() then
+                    luasnip.expand_or_jump()
+                elseif has_words_before() then
+                    cmp.complete()
                 else
                     fallback()
                 end
             end,
             s = function(fallback)
-                if vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-                    vim.api.nvim_feedkeys(t("<Plug>(ultusnips_jump_forward)"), 'm', 'true')
+                if cmp.visible() then
+                    cmp.select_next_item()
+                elseif luasnip.expand_or_jumpable() then
+                    luasnip.expand_or_jump()
+                elseif has_words_before() then
+                    cmp.complete()
                 else
                     fallback()
                 end
-            end
+            end,
         }),
         ["<S-Tab>"] = cmp.mapping({
             c = function()
@@ -82,25 +95,26 @@ cmp.setup({
             end,
             i = function(fallback)
                 if cmp.visible() then
-                    cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
-                elseif vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-                    return vim.api.nvim_feedkeys( t("<Plug>(ultisnips_jump_backward)"), 'm', true)
+                    cmp.select_prev_item()
+                elseif luasnip.jumpable(-1) then
+                    luasnip.jump(-1)
                 else
                     fallback()
                 end
             end,
             s = function(fallback)
-                if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-                    return vim.api.nvim_feedkeys( t("<Plug>(ultisnips_jump_backward)"), 'm', true)
+                if cmp.visible() then
+                    cmp.select_prev_item()
+                elseif luasnip.jumpable(-1) then
+                    luasnip.jump(-1)
                 else
                     fallback()
                 end
-            end
+            end,
         }),
         ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
         ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
         ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-        ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
         ['<C-e>'] = cmp.mapping({ i = cmp.mapping.close(), c = cmp.mapping.close() }),
         ['<CR>'] = cmp.mapping({
             i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })--,
@@ -113,13 +127,15 @@ cmp.setup({
             --end
         }),
     }),
-        sources = cmp.config.sources({
+    sources = cmp.config.sources(
+        {
             { name = 'nvim_lsp' },
-            { name = 'ultisnips' }, -- For ultisnips users.
-            }, {
-                { name = 'buffer' },
-            })
-        })
+            { name = 'luasnip' },
+        }, {
+            { name = 'buffer' },
+        }
+    )
+    })
 
   -- Set configuration for specific filetype.
   cmp.setup.filetype('gitcommit', {

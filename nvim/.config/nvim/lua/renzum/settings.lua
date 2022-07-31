@@ -21,6 +21,7 @@ set.autoread = true
 set.splitbelow = true
 set.updatetime = 100
 set.completeopt = 'menu,menuone,noselect'
+set.signcolumn = 'yes:1'
 
 vim.options = {
     colorcolumn = '80,120'
