@@ -1,5 +1,8 @@
 local ls = require('luasnip')
 
+--Load snippets from .config/nvim/snippets lazily
+require("luasnip.loaders.from_lua").lazy_load({ paths = "./snippets"})
+
 ls.config.set_config({
     history = true,
     updateevents = "TextChanged,TextChangedI",
