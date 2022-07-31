@@ -45,7 +45,7 @@ return require('packer').startup(function(use)
     use({
         'L3MON4D3/LuaSnip',
         requires = 'saadparwaiz1/cmp_luasnip',
-        --config = function() require('plugins.luasnip') end,
+        config = function() require('plugins.luasnip') end,
     })
     --[[use({
         'quangnguyen30192/cmp-nvim-ultisnips',
