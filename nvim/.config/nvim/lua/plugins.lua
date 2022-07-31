@@ -79,6 +79,8 @@ return require('packer').startup(function(use)
         config = function() require('plugins.ts_context') end,
     })
 
+    use 'lukas-reineke/indent-blankline.nvim'
+
     use ({
         'simrat39/rust-tools.nvim',
         config = function() require('plugins.rust_tools') end,
