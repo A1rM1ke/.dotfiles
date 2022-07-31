@@ -1,5 +1,8 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+
+local packer_bootstrap --Lua warning avoidance
+
 if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
   vim.cmd [[packadd packer.nvim]]
@@ -20,7 +23,13 @@ return require('packer').startup(function(use)
 
     --use 'vim-scripts/a.vim'
 
-    use 'mhinz/vim-signify'
+    --use 'mhinz/vim-signify'
+    use({
+        'lewis6991/gitsigns.nvim',
+        tag = 'release',
+        requires = 'nvim-lua/plenary.nvim',
+        config = function() require('gitsigns').setup() end,
+    })
 
     use({
         'lervag/vimtex',
