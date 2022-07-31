@@ -1,4 +1,4 @@
-require 'renzum.plugins'
+require 'plugins'
 require 'renzum.mappings'
 require 'renzum.settings'
 require 'renzum.autocmd'

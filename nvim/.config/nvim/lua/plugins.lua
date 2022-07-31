@@ -32,14 +32,23 @@ return require('packer').startup(function(use)
 
     use {'neovim/nvim-lspconfig', config = function() require('plugins.lsp_config') end }
 
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use { 'hrsh7th/nvim-cmp', config = function() require('plugins.nvim_cmp') end }
+    --Snippet
     use({
         'quangnguyen30192/cmp-nvim-ultisnips',
         requires = 'sirver/ultisnips',
+    })
+
+
+    --Completion
+    use({
+        'hrsh7th/nvim-cmp',
+        requires = {
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-cmdline',
+        },
+        config = function() require('plugins.nvim_cmp') end,
     })
 
     use({
