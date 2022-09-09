@@ -29,7 +29,7 @@ local secondsnippet = s("secondsnippet",
 )
 ]]
 
-table.insert(snippet_table, testsnippet)
-table.insert(snippet_table, secondsnippet)
+--table.insert(snippet_table, testsnippet)
+--table.insert(snippet_table, secondsnippet)
 
 return snippet_table

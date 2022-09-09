@@ -113,6 +113,12 @@ return require('packer').startup(function(use)
         ft = "go"
     })
 
+    --Language Server Installer
+    use({
+        'williamboman/mason.nvim',
+        config = function() require('mason').setup() end,
+    })
+
     if packer_bootstrap then
         require('packer').sync()
     end
