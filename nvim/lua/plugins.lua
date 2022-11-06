@@ -26,7 +26,6 @@ return require('packer').startup(function(use)
     --use 'mhinz/vim-signify'
     use({
         'lewis6991/gitsigns.nvim',
-        tag = 'release',
         requires = 'nvim-lua/plenary.nvim',
         config = function() require('gitsigns').setup() end,
     })
@@ -110,7 +109,10 @@ return require('packer').startup(function(use)
     use({
         'ray-x/go.nvim',
         opt = true,
-        ft = "go"
+        ft = "go",
+        config = function () require('go').setup({
+            gofmt="gofumpt"
+        }) end
     })
 
     --Language Server Installer
