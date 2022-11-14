@@ -40,6 +40,21 @@ return require('packer').startup(function(use)
 
     use {'neovim/nvim-lspconfig', config = function() require('plugins.lsp_config') end }
 
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons',
+        },
+        config = function() require('nvim-tree').setup({
+            view = {
+                adaptive_size = true,
+            },
+            filters = {
+                dotfiles = true,
+            }
+        }) end,
+    }
+
     --Snippet
     use({
         'L3MON4D3/LuaSnip',

@@ -39,3 +39,9 @@ vim.diagnostic.config({
   update_in_insert = false,
   severity_sort = false,
 })
+
+-- Disable netrw for Nvim Tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+vim.opt.termguicolors = true

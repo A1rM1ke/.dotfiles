@@ -36,7 +36,9 @@ vim.keymap.set('i', '<M-j>', '<Esc><C-W>j', opts)
 vim.keymap.set('i', '<M-k>', '<Esc><C-W>k', opts)
 vim.keymap.set('i', '<M-l>', '<Esc><C-W>l', opts)
 
-vim.keymap.set('n', '<Leader>e',':Lexplore<CR>', {noremap = true, silent = true} )
+-- If Nvim Tree is disabled
+-- vim.keymap.set('n', '<Leader>e',':Lexplore<CR>', {noremap = true, silent = true} )
+vim.keymap.set('n', '<Leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('v', '>', '>gv', {noremap = true, silent = true })
 vim.keymap.set('v', '<', '<gv', { noremap = true, silent = true })
