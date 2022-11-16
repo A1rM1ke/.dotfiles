@@ -40,6 +40,8 @@ vim.keymap.set('i', '<M-l>', '<Esc><C-W>l', opts)
 -- vim.keymap.set('n', '<Leader>e',':Lexplore<CR>', {noremap = true, silent = true} )
 vim.keymap.set('n', '<Leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
+vim.keymap.set('n', '<Leader>d', ':lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
+
 vim.keymap.set('v', '>', '>gv', {noremap = true, silent = true })
 vim.keymap.set('v', '<', '<gv', { noremap = true, silent = true })
 
