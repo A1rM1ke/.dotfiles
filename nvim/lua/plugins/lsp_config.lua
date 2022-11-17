@@ -1,5 +1,6 @@
 -- LSP Mappings
 local on_attach = function(client, bufnr)
+    print("Attached")
     local bufopts = { noremap = true, silent = true, buffer=bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
@@ -20,10 +21,17 @@ require('lspconfig')['jedi_language_server'].setup {
     on_attach = on_attach,
     capabilities = capabilities
 }
+
+--[[
 require('lspconfig')['rust_analyzer'].setup {
     on_attach = on_attach,
-    capabilities = capabilities
+    capabilities = capabilities,
+    settings = {
+        ['rust_analyzer'] = {}
+    }
 }
+]]
+
 require('lspconfig')['gopls'].setup {
     on_attach = on_attach,
     capabilities = capabilities
