@@ -45,14 +45,7 @@ return require('packer').startup(function(use)
         requires = {
             'nvim-tree/nvim-web-devicons',
         },
-        config = function() require('nvim-tree').setup({
-            view = {
-                adaptive_size = true,
-            },
-            filters = {
-                dotfiles = true,
-            }
-        }) end,
+        config = function() require('plugins.nvim_tree') end
     }
 
     --Snippet
