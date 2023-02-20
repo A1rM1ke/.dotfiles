@@ -34,11 +34,13 @@ end
 cmp.setup({
     formatting = {
         format = lspkind.cmp_format({
-            mode = "icons",
+            mode = "none",
 --[[            menu = ({
                 buffer = "[Buffer]",
                 nvim_lsp = "[LSP]",
                 luasnip = "[LuaSnip]",
+
+cmp_autopairs
                 nvim_lua = "[Lua]",
                 latex_symbols = "[Latex]",
             })
