@@ -54,10 +54,6 @@ return require('packer').startup(function(use)
         requires = 'saadparwaiz1/cmp_luasnip',
         config = function() require('plugins.luasnip') end,
     })
-    --[[use({
-        'quangnguyen30192/cmp-nvim-ultisnips',
-        requires = 'sirver/ultisnips',
-    })]]
 
 
     --Completion
